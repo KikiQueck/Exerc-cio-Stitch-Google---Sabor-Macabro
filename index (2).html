@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Sabor Macabro — Doçuras ou Travessuras</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary":              "#ffb596",
+            "primary-container":    "#ff6600",
+            "on-primary":          "#581e00",
+            "on-primary-container":"#561d00",
+            "secondary":           "#dabaf7",
+            "secondary-container": "#553b6f",
+            "surface":             "#121414",
+            "surface-dim":         "#121414",
+            "surface-container-lowest": "#0c0f0f",
+            "surface-container-low":    "#1a1c1c",
+            "surface-container":        "#1e2020",
+            "on-surface":          "#e2e2e2",
+            "on-surface-variant":  "#e3bfb1",
+            "outline":             "#aa8a7d",
+            "outline-variant":     "#5a4136",
+            "background":          "#121414",
+          },
+          fontFamily: {
+            "epilogue":  ["Epilogue", "sans-serif"],
+            "jakarta":   ["Plus Jakarta Sans", "sans-serif"],
+            "grotesk":   ["Space Grotesk", "sans-serif"],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --orange:  #ff6600;
+      --purple:  #1a0033;
+      --black:   #000000;
+      --white15: rgba(255,255,255,0.15);
+      --white05: rgba(255,255,255,0.05);
+    }
+
+    html, body {
+      margin: 0; padding: 0;
+      background: #000;
+      color: #e2e2e2;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    /* ── Material Icons ── */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      user-select: none;
+    }
+
+    /* ── Page system ── */
+    .page { display: none; }
+    .page.active { display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* ── Background gradients ── */
+    #page-home {
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #1a0033 0%, #000 65%);
+    }
+    #page-results {
+      background: radial-gradient(ellipse 60% 40% at 80% 20%, #1a003322 0%, #000 60%);
+    }
+
+    /* ── Neon text glow ── */
+    .glow-text {
+      text-shadow:
+        0 0 12px rgba(255,102,0,.7),
+        0 0 30px rgba(255,102,0,.35),
+        0 0 60px rgba(255,102,0,.15);
+    }
+
+    /* ── Candle wax loader ── */
+    .candle-bar {
+      height: 2px;
+      background: var(--orange);
+      box-shadow: 0 0 8px var(--orange), 0 0 16px rgba(255,102,0,.4);
+      border-radius: 9999px;
+      animation: flicker 2.4s ease-in-out infinite;
+    }
+    @keyframes flicker {
+      0%,100% { opacity: 1; }
+      30%      { opacity: .55; }
+      60%      { opacity: .85; }
+      80%      { opacity: .45; }
+    }
+
+    /* ── Header ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(0,0,0,.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--white15);
+      box-shadow: 0 4px 30px rgba(26,0,51,.6);
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px;
+      gap: 24px;
+    }
+
+    /* Brand */
+    .brand {
+      font-family: Epilogue, sans-serif;
+      font-weight: 900; font-size: 22px;
+      color: var(--orange);
+      text-shadow: 0 0 10px rgba(255,102,0,.5);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: opacity .2s;
+    }
+    .brand:hover { opacity: .85; }
+
+    /* Search bar (results header) */
+    .header-search {
+      display: flex; align-items: center;
+      background: var(--purple);
+      border: 1px solid var(--white15);
+      border-radius: 9999px;
+      padding: 8px 20px;
+      gap: 10px;
+      flex: 1; max-width: 480px;
+      transition: box-shadow .25s;
+    }
+    .header-search:focus-within {
+      box-shadow: 0 0 0 2px var(--orange), 0 0 20px rgba(255,102,0,.3);
+    }
+    .header-search input {
+      background: transparent; border: none; outline: none;
+      color: #e2e2e2; font-family: "Plus Jakarta Sans"; font-size: 15px;
+      width: 100%;
+    }
+    .header-search input::placeholder { color: #555; }
+
+    /* Nav links */
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-link {
+      font-family: "Space Grotesk"; font-size: 11px; font-weight: 500;
+      letter-spacing: .07em; text-transform: uppercase;
+      color: #999;
+      padding: 6px 14px; border-radius: 6px;
+      cursor: pointer; text-decoration: none;
+      transition: color .2s, text-shadow .2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--orange);
+      text-shadow: 0 0 8px rgba(255,102,0,.4);
+    }
+    .nav-link.active {
+      border-bottom: 2px solid var(--orange);
+      border-radius: 0;
+    }
+
+    /* Icon buttons */
+    .icon-btn {
+      color: var(--orange); cursor: pointer;
+      transition: transform .2s, filter .2s;
+    }
+    .icon-btn:hover {
+      transform: scale(1.12);
+      filter: drop-shadow(0 0 6px rgba(255,102,0,.6));
+    }
+
+    /* ── HOME PAGE ── */
+    .home-hero {
+      flex: 1;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 80px 24px 48px;
+      text-align: center;
+    }
+    .home-title {
+      font-family: Epilogue, sans-serif;
+      font-weight: 900;
+      font-size: clamp(52px, 10vw, 96px);
+      line-height: 1;
+      letter-spacing: -.03em;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .home-subtitle {
+      font-family: "Space Grotesk"; font-size: 11px; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(218, 186, 247, .55);
+      margin-bottom: 48px;
+    }
+
+    /* Home search */
+    .home-search-wrap {
+      width: 100%; max-width: 600px;
+      position: relative; margin-bottom: 32px;
+    }
+    .home-search-wrap .material-symbols-outlined.icon-left {
+      position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+      color: #555; pointer-events: none;
+      transition: color .25s;
+    }
+    .home-search-wrap:focus-within .icon-left { color: var(--orange); }
+    .home-search-wrap .material-symbols-outlined.icon-right {
+      position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+      color: #555; cursor: pointer;
+      transition: color .2s;
+    }
+    .home-search-wrap .icon-right:hover { color: #ddd; }
+
+    .home-search-input {
+      width: 100%;
+      background: var(--purple);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding: 18px 56px;
+      font-family: "Plus Jakarta Sans"; font-size: 16px;
+      color: #e2e2e2; outline: none;
+      transition: box-shadow .3s, border-color .3s;
+    }
+    .home-search-input::placeholder { color: #444; }
+    .home-search-input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 1px var(--orange), 0 0 30px rgba(255,102,0,.18);
+    }
+
+    /* Action buttons */
+    .btn-primary {
+      background: var(--orange);
+      color: #1a0033; font-family: Epilogue; font-weight: 700; font-size: 15px;
+      border: none; border-radius: 10px;
+      padding: 14px 32px; cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 24px rgba(255,102,0,.55), 0 4px 16px rgba(0,0,0,.4);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--orange); font-family: Epilogue; font-weight: 700; font-size: 15px;
+      border: 2px solid var(--orange); border-radius: 10px;
+      padding: 12px 32px; cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-secondary:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 18px rgba(255,102,0,.3);
+    }
+
+    /* Bento section */
+    .bento-section {
+      width: 100%; max-width: 1200px; margin: 0 auto;
+      padding: 0 32px 80px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media(min-width:768px) {
+      .bento-section { grid-template-columns: 8fr 4fr; }
+    }
+
+    .bento-card-main {
+      background: var(--purple);
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--white05);
+      position: relative; height: 400px;
+    }
+    .bento-card-main img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: .55;
+      transition: transform .7s ease, opacity .4s;
+    }
+    .bento-card-main:hover img { transform: scale(1.05); opacity: .65; }
+    .bento-card-main .gradient-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 55%);
+    }
+    .bento-card-main .card-content {
+      position: absolute; bottom: 0; left: 0; padding: 32px;
+    }
+
+    .tag-pill {
+      display: inline-block;
+      border-radius: 9999px; font-family: "Space Grotesk";
+      font-size: 11px; font-weight: 500; letter-spacing: .05em;
+      padding: 4px 12px; margin-bottom: 10px;
+    }
+    .tag-orange {
+      border: 1px solid var(--orange); color: var(--orange);
+      background: rgba(255,102,0,.1);
+    }
+
+    .bento-right { display: flex; flex-direction: column; gap: 20px; }
+
+    .bento-diets {
+      background: var(--purple); border-radius: 16px;
+      border: 1px solid var(--white05);
+      padding: 28px; flex: 1;
+    }
+    .diet-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+
+    .bento-grimoire {
+      background: var(--orange); border-radius: 16px;
+      padding: 28px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; cursor: pointer;
+      transition: box-shadow .25s, transform .2s;
+    }
+    .bento-grimoire:hover {
+      box-shadow: 0 0 36px rgba(255,102,0,.45);
+      transform: translateY(-2px);
+    }
+
+    /* ── RESULTS PAGE ── */
+    .results-main {
+      flex: 1;
+      max-width: 1200px; margin: 0 auto;
+      padding: 40px 32px 80px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    @media(min-width:1200px) {
+      .results-main { grid-template-columns: 1fr 320px; }
+    }
+
+    .result-list { display: flex; flex-direction: column; gap: 40px; }
+
+    .result-stat {
+      font-family: "Space Grotesk"; font-size: 12px;
+      color: rgba(255,255,255,.38); letter-spacing: .04em;
+      margin-bottom: 8px;
+    }
+
+    .result-item {
+      max-width: 680px;
+      padding: 20px; border-radius: 14px;
+      transition: background .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+    .result-item:hover {
+      background: rgba(26,0,51,.45);
+      box-shadow: 0 0 20px rgba(26,0,51,.6);
+    }
+    .result-url {
+      font-family: "Space Grotesk"; font-size: 11px; font-weight: 500;
+      color: rgba(255,255,255,.35); letter-spacing: .03em;
+      margin-bottom: 4px;
+    }
+    .result-title {
+      font-family: Epilogue; font-weight: 600; font-size: 22px;
+      color: var(--orange); line-height: 1.25;
+      transition: text-decoration .15s;
+    }
+    .result-item:hover .result-title { text-decoration: underline; }
+    .result-desc {
+      font-size: 15px; color: #999; line-height: 1.65;
+      margin-top: 10px;
+    }
+    .result-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+    /* Diet tag colors */
+    .tag-sugar  { border-color:#00f2ff; color:#00f2ff; background:rgba(0,242,255,.08); }
+    .tag-vegan  { border-color:#39ff14; color:#39ff14; background:rgba(57,255,20,.08); }
+    .tag-lowc   { border-color:#ff00ff; color:#ff00ff; background:rgba(255,0,255,.08); }
+    .tag-diab   { border-color:#fbff00; color:#fbff00; background:rgba(251,255,0,.08); }
+    .tag-fit    { border-color:#39ff14; color:#39ff14; background:rgba(57,255,20,.08); }
+
+    .result-tag {
+      border: 1px solid; border-radius: 9999px;
+      font-family: "Space Grotesk"; font-size: 11px; font-weight: 500;
+      letter-spacing: .05em; padding: 4px 12px;
+    }
+
+    /* Sidebar */
+    .results-sidebar { display: none; }
+    @media(min-width:1200px) { .results-sidebar { display: block; } }
+
+    .sidebar-card {
+      background: var(--purple);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px; overflow: hidden;
+      position: sticky; top: 90px;
+    }
+    .sidebar-card img {
+      width: 100%; height: 180px; object-fit: cover; display: block;
+    }
+    .sidebar-body { padding: 24px; }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: #000;
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 40px 32px;
+      margin-top: auto;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 20px;
+      font-family: "Space Grotesk"; font-size: 11px;
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; }
+    .footer-link {
+      color: #555; text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-link:hover { color: var(--orange); }
+
+    /* ── Mobile hamburger ── */
+    .hamburger { display: none; }
+    @media(max-width:640px) {
+      .hamburger { display: flex; }
+      .nav-links  { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; width: 100%; padding: 8px 0; }
+    }
+
+    /* ── Responsive tweaks ── */
+    @media(max-width:640px) {
+      .header-inner { padding: 12px 16px; }
+      .home-hero    { padding: 48px 16px 32px; }
+      .bento-section { padding: 0 16px 48px; }
+      .results-main  { padding: 24px 16px 48px; }
+      .site-footer   { padding: 32px 16px; }
+    }
+
+    /* ── Page transition ── */
+    .page { animation: fadeIn .3s ease; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Loading overlay ── */
+    #loading-overlay {
+      position: fixed; inset: 0; z-index: 999;
+      background: #000;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 24px;
+      transition: opacity .5s;
+    }
+    #loading-overlay.hidden { opacity: 0; pointer-events: none; }
+    .loading-title {
+      font-family: Epilogue; font-weight: 900; font-size: 36px;
+      color: var(--orange);
+      text-shadow: 0 0 20px rgba(255,102,0,.6);
+    }
+    .loading-bar-wrap { width: 200px; }
+
+    /* ── Scroll to top ── */
+    #scroll-top {
+      position: fixed; bottom: 28px; right: 28px; z-index: 40;
+      background: var(--orange); color: #1a0033;
+      border: none; border-radius: 50%;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; opacity: 0;
+      transition: opacity .3s, box-shadow .2s, transform .2s;
+      box-shadow: 0 0 0 rgba(255,102,0,0);
+    }
+    #scroll-top.visible {
+      opacity: 1;
+      box-shadow: 0 0 16px rgba(255,102,0,.45);
+    }
+    #scroll-top:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ LOADING ═══════════════════════════════════ -->
+<div id="loading-overlay" role="status" aria-label="Carregando Sabor Macabro">
+  <div class="loading-title">Sabor Macabro</div>
+  <div class="loading-bar-wrap">
+    <div class="candle-bar" style="width:100%"></div>
+  </div>
+  <p style="font-family:'Space Grotesk';font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#555;">
+    Invocando as receitas…
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════ HOME PAGE ═══════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" onclick="showPage('home')" role="link" aria-label="Sabor Macabro – Página inicial" href="#">
+        Sabor Macabro
+      </a>
+
+      <nav class="nav-links" id="nav-home" role="navigation" aria-label="Navegação principal">
+        <a class="nav-link active" href="#" onclick="showPage('home')" aria-current="page">Receitas</a>
+        <a class="nav-link" href="#" onclick="showPage('home')">Doces</a>
+        <a class="nav-link" href="#" onclick="showPage('home')">Sobre</a>
+        <a class="nav-link" href="#" onclick="showPage('home')">Contato</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:16px;">
+        <button class="icon-btn" aria-label="Conta de usuário" style="background:none;border:none;padding:0;">
+          <span class="material-symbols-outlined">account_circle</span>
+        </button>
+        <button class="icon-btn" aria-label="Carrinho de compras" style="background:none;border:none;padding:0;">
+          <span class="material-symbols-outlined">shopping_basket</span>
+        </button>
+        <!-- Mobile hamburger -->
+        <button class="hamburger icon-btn" aria-label="Menu" style="background:none;border:none;padding:0;"
+                onclick="document.getElementById('nav-home').classList.toggle('open')">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="home-hero" id="main-home" role="main">
+    <h1 class="home-title glow-text">Sabor Macabro</h1>
+    <p class="home-subtitle">Culinária Gótica &amp; Confeitaria Obscura</p>
+
+    <!-- Search -->
+    <div class="home-search-wrap" role="search">
+      <span class="material-symbols-outlined icon-left" aria-hidden="true">search</span>
+      <label for="home-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">
+        Buscar receitas
+      </label>
+      <input
+        id="home-search"
+        class="home-search-input"
+        type="search"
+        placeholder="Buscar receitas ou doces assustadores…"
+        autocomplete="off"
+        aria-label="Buscar receitas ou doces assustadores"
+        onkeydown="if(event.key==='Enter')doSearch(this.value)"
+      />
+      <span class="material-symbols-outlined icon-right" aria-label="Busca por voz" title="Busca por voz" tabindex="0">mic</span>
+    </div>
+
+    <!-- Buttons -->
+    <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:48px;">
+      <button class="btn-primary" onclick="doSearch('receitas macabras')" aria-label="Buscar receitas">
+        Buscar receitas
+      </button>
+      <button class="btn-secondary" onclick="doSearch('doces góticos')" aria-label="Ver doces">
+        Ver doces
+      </button>
+    </div>
+
+    <!-- Candle loader decorative -->
+    <div style="width:160px;opacity:.18;" aria-hidden="true">
+      <div class="candle-bar"></div>
+    </div>
+  </main>
+
+  <!-- Bento grid -->
+  <section class="bento-section" aria-label="Destaques">
+    <!-- Featured card -->
+    <article class="bento-card-main" tabindex="0" onclick="doSearch('bolo chocolate')"
+             role="button" aria-label="Ver receita: Bolo Abismo de Chocolate">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuClmlxMpDCwHQHf_oVF8jjj4zINnEz6jgqeU-Ngi6tKE-9uZQ0_Plk6UbiNO6aMrOoiC0Uu80Bzl17RP923ZyYv-SN26nObbT6VACP6B8yDWQux3m-dIe63iS0gKGZMNdzC3uktWYfYfrTECst4zHbjPUElY3tc71iJH3GKBc1-KJZLOM01kudPkkohrghLR6oaq1DFUhhdRsHy7GtEcdKlPp064T7h9S7qiliTXzIS1748EZ0V8o4E4fN6vC6G5VhsOQwZNKqUvHQ"
+        alt="Bolo Abismo de Chocolate — bolo negro com cobertura brilhante e calda vermelha"
+        loading="lazy"
+      />
+      <div class="gradient-overlay" aria-hidden="true"></div>
+      <div class="card-content">
+        <span class="tag-pill tag-orange">Destaque do Mês</span>
+        <h2 style="font-family:Epilogue;font-weight:700;font-size:26px;color:#fff;margin:0 0 8px;line-height:1.2;">
+          Bolo Abismo de Chocolate
+        </h2>
+        <p style="color:#aaa;font-size:15px;max-width:400px;margin:0;">
+          Uma jornada sensorial pelas trevas com cacau 85% e infusão de fumaça.
+        </p>
+      </div>
+    </article>
+
+    <!-- Right column -->
+    <div class="bento-right">
+      <!-- Diet tags card -->
+      <div class="bento-diets">
+        <h3 style="font-family:Epilogue;font-weight:600;font-size:18px;color:#e2e2e2;margin:0;">
+          Dietas Obscuras
+        </h3>
+        <div class="diet-tags" role="list" aria-label="Filtros dietéticos">
+          <button class="result-tag tag-sugar" onclick="doSearch('sugar-free')" role="listitem">Sugar-free</button>
+          <button class="result-tag tag-vegan" onclick="doSearch('vegan')" role="listitem">Vegan</button>
+          <button class="result-tag tag-lowc"  onclick="doSearch('low carb')" role="listitem">Low Carb</button>
+          <button class="result-tag tag-diab"  onclick="doSearch('diabético')" role="listitem">Diabetic-friendly</button>
+        </div>
+      </div>
+
+      <!-- Grimoire CTA -->
+      <div class="bento-grimoire" onclick="doSearch('grimório receitas')" role="button" tabindex="0"
+           aria-label="Acessar Grimório de Receitas">
+        <span class="material-symbols-outlined" style="font-size:40px;color:#1a0033;margin-bottom:10px;" aria-hidden="true">
+          menu_book
+        </span>
+        <h3 style="font-family:Epilogue;font-weight:700;font-size:18px;color:#1a0033;margin:0 0 6px;">
+          Grimório de Receitas
+        </h3>
+        <p style="font-family:'Space Grotesk';font-size:11px;color:rgba(26,0,51,.75);letter-spacing:.05em;margin:0;">
+          Acesse 666+ fórmulas secretas
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <nav class="footer-links" aria-label="Links do rodapé">
+        <a class="footer-link" href="#">Privacidade</a>
+        <a class="footer-link" href="#">Termos</a>
+        <a class="footer-link" href="#">Cookies</a>
+        <a class="footer-link" href="#">Ajuda</a>
+      </nav>
+      <p style="color:var(--orange);font-weight:700;letter-spacing:.1em;margin:0;">
+        © 2025 Sabor Macabro — Doçuras ou Travessuras
+      </p>
+    </div>
+  </footer>
+</div><!-- /page-home -->
+
+
+<!-- ═══════════════════════════════════ RESULTS PAGE ═══════════════════════════════════ -->
+<div id="page-results" class="page">
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" onclick="showPage('home')" href="#" aria-label="Sabor Macabro – Voltar ao início">
+        Sabor Macabro
+      </a>
+
+      <!-- Inline search -->
+      <div class="header-search" role="search">
+        <label for="results-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">
+          Buscar
+        </label>
+        <input
+          id="results-search"
+          type="search"
+          aria-label="Refinar busca"
+          autocomplete="off"
+          onkeydown="if(event.key==='Enter')doSearch(this.value)"
+        />
+        <button onclick="doSearch(document.getElementById('results-search').value)"
+                style="background:none;border:none;padding:0;cursor:pointer;" aria-label="Buscar">
+          <span class="material-symbols-outlined icon-btn">search</span>
+        </button>
+      </div>
+
+      <nav class="nav-links" id="nav-results" role="navigation" aria-label="Navegação principal">
+        <a class="nav-link active" href="#" aria-current="page">Receitas</a>
+        <a class="nav-link" href="#">Doces</a>
+        <a class="nav-link" href="#">Sobre</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:16px;">
+        <button class="icon-btn" aria-label="Carrinho" style="background:none;border:none;padding:0;">
+          <span class="material-symbols-outlined">shopping_basket</span>
+        </button>
+        <button class="icon-btn" aria-label="Conta" style="background:none;border:none;padding:0;">
+          <span class="material-symbols-outlined">account_circle</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Results content -->
+  <main class="results-main" id="main-results" role="main">
+
+    <!-- Left: result list -->
+    <section aria-label="Resultados da busca">
+      <p class="result-stat" id="result-stat" aria-live="polite">
+        Aproximadamente 666 resultados (0,13 segundos)
+      </p>
+
+      <!-- Filter chips -->
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;" role="list" aria-label="Filtros">
+        <button class="result-tag tag-sugar" onclick="doSearch('sugar-free')">Sugar-free</button>
+        <button class="result-tag tag-vegan" onclick="doSearch('vegan')">Vegan</button>
+        <button class="result-tag tag-lowc"  onclick="doSearch('low carb')">Low Carb</button>
+        <button class="result-tag tag-diab"  onclick="doSearch('diabético')">Diabetic-friendly</button>
+        <button class="result-tag" style="border-color:#ff6600;color:#ff6600;background:rgba(255,102,0,.08);"
+                onclick="doSearch('halloween')">Halloween</button>
+        <button class="result-tag" style="border-color:#ff6600;color:#ff6600;background:rgba(255,102,0,.08);"
+                onclick="doSearch('chocolate')">Chocolate</button>
+      </div>
+
+      <div class="result-list" id="result-list" role="list" aria-label="Lista de receitas">
+
+        <!-- Result 1 -->
+        <article class="result-item" role="listitem" tabindex="0"
+                 aria-label="Cupcake de Abóbora Amaldiçoado">
+          <p class="result-url">sabormacabro.com.br › receitas › abobora</p>
+          <h2 class="result-title">Cupcake de Abóbora Amaldiçoado</h2>
+          <p class="result-desc">
+            Um cupcake macio com especiarias e cobertura fantasmagórica. Perfeito para festas
+            de Halloween que exigem um toque de mistério e doçura irresistível.
+          </p>
+          <div class="result-tags">
+            <span class="result-tag tag-sugar">Sugar-free</span>
+            <span class="result-tag tag-vegan">Vegan</span>
+          </div>
+        </article>
+
+        <!-- Result 2 -->
+        <article class="result-item" role="listitem" tabindex="0"
+                 aria-label="Bolo de Chocolate Sombrio">
+          <p class="result-url">sabormacabro.com.br › bolos › chocolate</p>
+          <h2 class="result-title">Bolo de Chocolate Sombrio</h2>
+          <p class="result-desc">
+            Intenso, escuro e misterioso. Feito com cacau 100% e um segredo guardado a sete
+            chaves pelas bruxas da cozinha — cada fatia é uma viagem às trevas.
+          </p>
+          <div class="result-tags">
+            <span class="result-tag tag-lowc">Low Carb</span>
+            <span class="result-tag tag-diab">Diabetic-friendly</span>
+          </div>
+        </article>
+
+        <!-- Result 3 -->
+        <article class="result-item" role="listitem" tabindex="0"
+                 aria-label="Cookies Fantasma">
+          <p class="result-url">sabormacabro.com.br › biscoitos › fantasmas</p>
+          <h2 class="result-title">Cookies Fantasma</h2>
+          <p class="result-desc">
+            Biscoitos crocantes com gotas de chocolate que parecem almas perdidas. A textura
+            derrete na boca deixando um rastro etéreo de baunilha negra.
+          </p>
+          <div class="result-tags">
+            <span class="result-tag tag-vegan">Vegan</span>
+            <span class="result-tag tag-sugar">Sugar-free</span>
+          </div>
+        </article>
+
+        <!-- Result 4 -->
+        <article class="result-item" role="listitem" tabindex="0"
+                 aria-label="Torta Sangrenta de Morango">
+          <p class="result-url">sabormacabro.com.br › tortas › morango</p>
+          <h2 class="result-title">Torta Sangrenta de Morango</h2>
+          <p class="result-desc">
+            Recheio suculento de morangos frescos com um toque de terror. O brilho da calda
+            parece vindo diretamente de um clássico de horror dos anos 80.
+          </p>
+          <div class="result-tags">
+            <span class="result-tag tag-lowc">Low Carb</span>
+            <span class="result-tag tag-fit">Fit</span>
+          </div>
+        </article>
+
+        <!-- Result 5 -->
+        <article class="result-item" role="listitem" tabindex="0"
+                 aria-label="Brigadeiro Dark">
+          <p class="result-url">sabormacabro.com.br › doces › brigadeiro</p>
+          <h2 class="result-title">Brigadeiro Dark</h2>
+          <p class="result-desc">
+            O clássico brasileiro em versão sombria e intensa. Enrolado em raspas de chocolate
+            belga amargo para um paladar refinado e um espírito assombrado.
+          </p>
+          <div class="result-tags">
+            <span class="result-tag tag-sugar">Sugar-free</span>
+            <span class="result-tag tag-diab">Diabetic-friendly</span>
+          </div>
+        </article>
+
+        <!-- Result 6 -->
+        <article class="result-item" role="listitem" tabindex="0"
+                 aria-label="Macarons de Viúva Negra">
+          <p class="result-url">sabormacabro.com.br › macarons › aranha</p>
+          <h2 class="result-title">Macarons de Viúva Negra</h2>
+          <p class="result-desc">
+            Leves como fantasmas, recheados com ganache de cacau preto. Decorados com teia de
+            açúcar para uma apresentação que paralisa de admiração — ou de medo.
+          </p>
+          <div class="result-tags">
+            <span class="result-tag tag-vegan">Vegan</span>
+          </div>
+        </article>
+
+        <!-- Result 7 -->
+        <article class="result-item" role="listitem" tabindex="0"
+                 aria-label="Pudim do Abismo">
+          <p class="result-url">sabormacabro.com.br › pudins › abismo</p>
+          <h2 class="result-title">Pudim do Abismo</h2>
+          <p class="result-desc">
+            Cremoso, negro como a meia-noite e insuportavelmente delicioso. Infusão de café
+            espresso concentrado com cobertura de caramelo salgado queimado.
+          </p>
+          <div class="result-tags">
+            <span class="result-tag tag-diab">Diabetic-friendly</span>
+            <span class="result-tag tag-lowc">Low Carb</span>
+          </div>
+        </article>
+
+        <!-- Pagination -->
+        <nav style="display:flex;gap:8px;align-items:center;margin-top:16px;" aria-label="Paginação">
+          <button class="btn-primary" style="padding:10px 20px;font-size:13px;" aria-label="Próxima página">
+            Próxima página
+          </button>
+          <span style="color:#555;font-size:13px;font-family:'Space Grotesk';">
+            Página 1 de 66
+          </span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="results-sidebar" aria-label="Destaque da semana">
+      <div class="sidebar-card">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcmBKw-uTb5MlTIryhbXiPBDEqG4O5ZTXE91onm7JRHJKVoEFeGn0ooSfclPZWNkzeLAcY0oK9-A6urJ24Nl-l7M4NJ0hF1MvwYKboKELBISZxfWbzU3gCnJwsd6kTvpGhrqZrQhHDxmBvbTtUnKxFADl4vxvSC9X7cju0GwjAn33YBzTuao88uzsIzc4kbL2tLWOUnbTn1kMhpF7S1AkMLvhMPGmnnDINjf7qeErCqkitZ2JFi_cTbIQsQDw_KR2INcOCuu7Xf_c"
+          alt="Bolo de Teia de Aranha — Halloween"
+          loading="lazy"
+        />
+        <div class="sidebar-body">
+          <h3 style="font-family:Epilogue;font-weight:600;font-size:18px;color:var(--orange);margin:0 0 10px;">
+            Destaque da Semana
+          </h3>
+          <p style="color:#999;font-size:14px;line-height:1.6;margin:0 0 18px;">
+            Nosso Bolo de Teia de Aranha está fazendo sucesso nas festas de Halloween
+            este ano. Quer a receita?
+          </p>
+          <button class="btn-primary" style="width:100%;font-size:14px;"
+                  onclick="doSearch('bolo teia aranha')">
+            Ver Receita
+          </button>
+
+          <!-- Stats -->
+          <div style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+              <div style="text-align:center;">
+                <p style="font-family:Epilogue;font-weight:700;font-size:24px;color:var(--orange);margin:0;">666+</p>
+                <p style="font-family:'Space Grotesk';font-size:10px;letter-spacing:.08em;color:#555;margin:4px 0 0;text-transform:uppercase;">Receitas</p>
+              </div>
+              <div style="text-align:center;">
+                <p style="font-family:Epilogue;font-weight:700;font-size:24px;color:var(--orange);margin:0;">4.9 ★</p>
+                <p style="font-family:'Space Grotesk';font-size:10px;letter-spacing:.08em;color:#555;margin:4px 0 0;text-transform:uppercase;">Avaliação</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </main><!-- /results-main -->
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <nav class="footer-links" aria-label="Links do rodapé">
+        <a class="footer-link" href="#">Privacidade</a>
+        <a class="footer-link" href="#">Termos</a>
+        <a class="footer-link" href="#">Cookies</a>
+        <a class="footer-link" href="#">Ajuda</a>
+      </nav>
+      <p style="color:var(--orange);font-weight:700;letter-spacing:.1em;margin:0;">
+        © 2025 Sabor Macabro — Doçuras ou Travessuras
+      </p>
+    </div>
+  </footer>
+</div><!-- /page-results -->
+
+<!-- Scroll to top -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        aria-label="Voltar ao topo">
+  <span class="material-symbols-outlined" style="font-size:20px;">arrow_upward</span>
+</button>
+
+
+<!-- ═══════════════════════════════════ SCRIPTS ═══════════════════════════════════ -->
+<script>
+  /* ── Loading screen ── */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loading-overlay').classList.add('hidden');
+    }, 900);
+  });
+
+  /* ── Page router ── */
+  let currentPage = 'home';
+
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    currentPage = name;
+    window.scrollTo(0, 0);
+  }
+
+  /* ── Search ── */
+  function doSearch(query) {
+    const q = (query || '').trim();
+    const input = document.getElementById('results-search');
+    if (input) input.value = q || 'receitas macabras';
+
+    const homeInput = document.getElementById('home-search');
+    if (homeInput && homeInput.value.trim()) {
+      // carry query
+    }
+
+    // Update stat text
+    const stat = document.getElementById('result-stat');
+    if (stat && q) {
+      const count = (q.length * 97 + 66) % 900 + 100;
+      stat.textContent = `Aproximadamente ${count} resultados (0,${(Math.random()*.18+.05).toFixed(2)} segundos) — "${q}"`;
+    }
+
+    showPage('results');
+  }
+
+  /* ── Keyboard nav for search on home ── */
+  document.getElementById('home-search')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') doSearch(e.target.value);
+  });
+
+  /* ── Result item keyboard ── */
+  document.querySelectorAll('.result-item').forEach(el => {
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        el.click();
+      }
+    });
+  });
+
+  /* ── Scroll to top button ── */
+  const scrollBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  /* ── Brand click → home ── */
+  document.querySelectorAll('.brand').forEach(b => {
+    b.addEventListener('click', e => { e.preventDefault(); showPage('home'); });
+  });
+
+  /* ── Diet tag / bento clicks on home ── */
+  document.querySelectorAll('.bento-card-main, .bento-grimoire').forEach(el => {
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter') el.click();
+    });
+  });
+</script>
+</body>
+</html>
