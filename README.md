@@ -1,1 +1,1 @@
-# Exerc-cio-Stitch-Google---Sabor-Macabro
+# Exercício-Stitch-Google---Sabor-Macabro
