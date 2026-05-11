@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sabor Macabro | Confeitaria Dark Fantasy Artesanal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Space+Grotesk:wght@500&family=Syne:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-container": "#d97a2b",
+          "surface-variant": "#353535",
+          "outline": "#a38c7e",
+          "surface-container-low": "#1b1b1b",
+          "on-surface": "#e5e2e1",
+          "primary": "#ffb784",
+          "tertiary": "#b3d275",
+          "outline-variant": "#554338",
+          "surface-container-highest": "#353535",
+          "on-primary": "#4f2500",
+          "tertiary-container": "#809c46",
+          "on-secondary-container": "#c5aae4",
+          "on-background": "#e5e2e1",
+          "on-primary-fixed-variant": "#713700",
+          "secondary-container": "#533c6e",
+          "surface-container-high": "#2a2a2a",
+          "surface-container": "#20201f",
+          "background": "#131313",
+          "secondary": "#d7bbf6",
+          "surface-dim": "#131313",
+          "on-tertiary-container": "#203000",
+          "on-secondary": "#3b2656",
+          "surface-container-lowest": "#0e0e0e",
+          "on-surface-variant": "#dbc2b2",
+          "surface": "#131313",
+          "on-primary-container": "#482100",
+          "on-tertiary": "#253600",
+        },
+        borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px" },
+        spacing: {
+          "margin-mobile": "16px", "gutter": "24px", "xl": "48px",
+          "container-max": "1200px", "lg": "24px", "xs": "4px",
+          "base": "4px", "md": "16px", "sm": "8px"
+        },
+        fontFamily: {
+          "body-md": ["Be Vietnam Pro"], "label-md": ["Space Grotesk"],
+          "title-md": ["Syne"], "headline-lg": ["Syne"], "headline-xl": ["Syne"]
+        },
+        fontSize: {
+          "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+          "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+          "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" }],
+          "title-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+          "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+          "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .glassmorphism-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(229,226,225,0.1); }
+  .eerie-glow { box-shadow: 0 0 30px rgba(75,53,102,0.2); }
+  .burnt-glow:hover { box-shadow: 0 0 20px rgba(217,122,43,0.4); }
+  .acid-glow { box-shadow: 0 0 15px rgba(179,210,117,0.3); }
+  .custom-divider { height:1px; background:linear-gradient(90deg,transparent 0%,#a38c7e 50%,transparent 100%); opacity:0.3; }
+  .nav-link { color:#dbc2b2; font-size:24px; line-height:32px; font-weight:600; font-family:'Syne',sans-serif; transition:color 0.2s; }
+  .nav-link:hover { color:#ffb784; }
+  .nav-active { color:#ffb784; border-bottom:2px solid #ffb784; padding-bottom:2px; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+
+<!-- Navigation -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant/10 bg-surface/60 glassmorphism-effect shadow-[0_4px_20px_rgba(217,122,43,0.1)]">
+  <nav class="flex justify-between items-center h-24 px-gutter max-w-container-max mx-auto">
+    <a href="./index.html" class="font-headline-lg text-headline-lg text-primary italic tracking-tighter hover:text-primary-container transition-colors" style="font-size:32px;font-weight:700;">Sabor Macabro</a>
+    <div class="hidden md:flex items-center gap-lg" id="nav-links"></div>
+    <div class="flex items-center gap-md">
+      <button class="p-sm text-on-surface-variant hover:text-primary transition-all duration-300">
+        <span class="material-symbols-outlined text-[24px]">shopping_basket</span>
+      </button>
+      <button class="p-sm text-on-surface-variant hover:text-primary transition-all duration-300">
+        <span class="material-symbols-outlined text-[24px]">person</span>
+      </button>
+      <button class="md:hidden p-sm text-on-surface-variant hover:text-primary" id="mobile-menu-btn">
+        <span class="material-symbols-outlined text-[24px]">menu</span>
+      </button>
+    </div>
+  </nav>
+  <div class="hidden md:hidden border-t border-outline-variant/10 bg-surface/95 glassmorphism-effect" id="mobile-menu"></div>
+</header>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-surface-container-low/50 to-background z-0"></div>
+  <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-xl items-center relative z-10">
+    <div class="order-2 lg:order-1">
+      <span class="inline-block bg-primary-container/10 text-primary-container border border-primary-container/20 px-md py-xs rounded-full font-label-md mb-md acid-glow" style="font-size:14px;font-weight:500;">
+        Artesanal &amp; Obscuro
+      </span>
+      <h1 class="font-headline-xl mb-md text-on-surface leading-tight" style="font-size:48px;line-height:56px;font-weight:800;letter-spacing:-0.02em;font-family:'Syne',sans-serif;">
+        Doces Criaturas e <span class="text-primary-container italic">Delícias Macabras</span>
+      </h1>
+      <p class="font-body-lg text-on-surface-variant mb-xl max-w-[500px]" style="font-size:18px;line-height:28px;">
+        Onde o encanto do Tim Burton encontra o sabor da alta confeitaria. Venha descobrir o lado mais doce da escuridão.
+      </p>
+      <div class="flex flex-wrap gap-md">
+        <a href="./loja/index.html" class="bg-primary-container text-on-primary-container font-title-md px-xl py-md rounded-lg burnt-glow transition-all active:scale-95 inline-block" style="font-size:24px;font-weight:600;">
+          Encomendar Agora
+        </a>
+        <a href="./loja/index.html" class="border border-outline-variant text-on-surface font-title-md px-xl py-md rounded-lg hover:bg-surface-variant/30 transition-all active:scale-95 inline-block" style="font-size:24px;font-weight:600;">
+          Ver Cardápio
+        </a>
+      </div>
+    </div>
+    <div class="order-1 lg:order-2 flex justify-center relative">
+      <div class="absolute -z-10 w-[120%] h-[120%] bg-primary-container/5 blur-3xl rounded-full"></div>
+      <img alt="Sabor Macabro Logo" class="w-full max-w-[500px] drop-shadow-[0_0_50px_rgba(217,122,43,0.2)]" src="https://lh3.googleusercontent.com/aida/ADBb0uipdaw1GURl-YAzH9E-ZHz2lFGO4b62CFWBZtUFO3XAPjqh7MozIKVYI8xIAXqxKsBJReGnLULChw0KbbhGULE1zBje7Kmi7pLBI_6v2PDHcrsCMCWmLAXaY21gC2LH8NC16YfJ6WhFhEH8xqF8kzfV1DGjzUhGCi4s-TBxlMY6MdpYAsY8YxmB8wuIzRZirGFhZjk9Upi-D5W7N6FPy-z4YUH7rbCFNlwPJoTyfBiW02QKI_5Ybq2qtq5I3FwxH7tZp92svoeiZA"/>
+    </div>
+  </div>
+</section>
+
+<!-- Especialidades -->
+<section class="py-xl px-gutter max-w-container-max mx-auto">
+  <div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-md">
+    <div>
+      <h2 class="font-headline-lg mb-xs text-primary" style="font-size:32px;font-weight:700;font-family:'Syne',sans-serif;">Nossas Especialidades</h2>
+      <p class="text-on-surface-variant" style="font-size:16px;">Criados com ingredientes premium e um toque de magia.</p>
+    </div>
+    <div class="custom-divider flex-grow mx-xl hidden md:block"></div>
+    <a class="text-primary-container font-label-md flex items-center gap-xs hover:gap-sm transition-all" href="./loja/index.html" style="font-size:14px;font-weight:500;">
+      Ver Todos <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+    <div class="bg-surface-container border border-outline-variant/10 rounded-xl overflow-hidden group hover:border-primary-container/30 transition-all duration-500 eerie-glow">
+      <div class="h-64 overflow-hidden relative">
+        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAknIBy33ZEFTrhLbwFE5YAySVYLNxnI0VVBgHd0_of80fv8OaFgiU6xrkgTXjnbyGS1QmFAINZOf7LOLwV0K-aFh52UyCEszATKOc8EEKmevmHSXDDEbO-nzDMUwSG4Rn2rC6ehNyrFdTHfLFJ_dxDrCUQE1s1HZX0emgCn6LScWnSDtYgGIHFcgAl8XOnota2sw5CrPutPy1cc9w9WRp-9c-dHkXsw7ptDEmZ6SmPKNjqMvvSvTLQJKfPiH_CqCTwZhNTPi8_xNk" alt="Cupcakes de Teia"/>
+        <div class="absolute top-md left-md bg-tertiary text-on-tertiary px-sm py-xs rounded-full font-label-md acid-glow" style="font-size:14px;font-weight:500;">Populares</div>
+      </div>
+      <div class="p-lg">
+        <h3 class="font-title-md mb-xs text-on-surface" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Cupcakes de Teia</h3>
+        <p class="text-on-surface-variant mb-md" style="font-size:16px;">Chocolate belga 70% com fios de açúcar prateados e recheio de amarena.</p>
+        <div class="flex justify-between items-center">
+          <span class="text-primary font-title-md" style="font-size:24px;font-weight:600;">R$ 18,00</span>
+          <button class="bg-surface-container-high p-sm rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors">
+            <span class="material-symbols-outlined">add_shopping_cart</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-surface-container border border-outline-variant/10 rounded-xl overflow-hidden group hover:border-primary-container/30 transition-all duration-500 eerie-glow">
+      <div class="h-64 overflow-hidden relative">
+        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUIyJl3VI33R-_cQzwIdRnWoAJg3VEiOmLXhEkicS7ZGLS6JStzHCD7Dl5ReONk0A6Mry2KXGKlDmActzIclu0bviNum1J_ScoXZCACNLr7-CHHCFe8v3JnJd0YAMl2KiCtjonCpCXOC4POMObKrY4WilRfY83UAvScJVpCBA" alt="Brownies de Túmulo"/>
+      </div>
+      <div class="p-lg">
+        <h3 class="font-title-md mb-xs text-on-surface" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Brownies de Túmulo</h3>
+        <p class="text-on-surface-variant mb-md" style="font-size:16px;">Brownie fudgy com 'terra' de Oreo e lápides de biscoito amanteigado.</p>
+        <div class="flex justify-between items-center">
+          <span class="text-primary font-title-md" style="font-size:24px;font-weight:600;">R$ 16,50</span>
+          <button class="bg-surface-container-high p-sm rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors">
+            <span class="material-symbols-outlined">add_shopping_cart</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-surface-container-high border border-outline-variant/20 rounded-xl p-lg flex flex-col justify-center items-center text-center relative overflow-hidden group">
+      <div class="absolute inset-0 bg-gradient-to-br from-tertiary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <span class="material-symbols-outlined text-tertiary mb-md" style="font-size:48px;">eco</span>
+      <h3 class="font-headline-lg mb-sm text-tertiary" style="font-size:32px;font-weight:700;font-family:'Syne',sans-serif;">Opções Inclusivas</h3>
+      <p class="text-on-surface-variant mb-lg" style="font-size:16px;">Para todas as almas: Delícias sem glúten, veganas e com baixo açúcar.</p>
+      <div class="flex flex-wrap justify-center gap-xs mb-lg">
+        <span class="bg-surface-container text-tertiary border border-tertiary/20 px-sm py-base rounded-lg font-label-md" style="font-size:14px;">Sem Glúten</span>
+        <span class="bg-surface-container text-tertiary border border-tertiary/20 px-sm py-base rounded-lg font-label-md" style="font-size:14px;">Sugar Free</span>
+        <span class="bg-surface-container text-tertiary border border-tertiary/20 px-sm py-base rounded-lg font-label-md" style="font-size:14px;">Vegano</span>
+      </div>
+      <a href="./loja/index.html" class="bg-tertiary text-on-tertiary font-title-md px-lg py-sm rounded-lg acid-glow transition-all hover:scale-105 inline-block" style="font-size:24px;font-weight:600;">
+        Explorar Dieta
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Receitas Section -->
+<section class="py-xl bg-surface-container-lowest">
+  <div class="max-w-container-max mx-auto px-gutter">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+      <div class="relative rounded-2xl overflow-hidden aspect-video shadow-2xl">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC23pf5-N6hhnwSJkPRUtA18OoNcLak0_2uXf7IrV9sRKVh_BrT_ge1YvXOrC2OFgN2R8x8syXW7-wLqNq7exlZKYigC8oyh970U2SLoxeZI_aAeYGkpFKVhrjW28m4KpYN15PFY7ZeqSvdmQETvno3trulLyiKvtgtj64ebU-KwokPdVP7CjuQ20IiTwoVOozsrmZGTaTVUR95KLb0sBzPt4BX5FZAKLG5dLKKcuRffnyh9Twy3QZLBxPjl2AHrFp-rmUs9qx7Bs" alt="Confeiteiro artesanal"/>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/40">
+          <a href="./receitas/index.html" class="w-20 h-20 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-[32px]">play_arrow</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h2 class="font-headline-xl mb-md text-on-surface" style="font-size:48px;line-height:56px;font-weight:800;font-family:'Syne',sans-serif;">
+          Cozinhe como uma <span class="text-secondary italic">Feiticeira</span>
+        </h2>
+        <p class="text-on-surface-variant mb-lg" style="font-size:18px;line-height:28px;">
+          Compartilhamos nossos segredos mais obscuros. Aprenda a fazer nossos doces icônicos com nosso guia passo a passo.
+        </p>
+        <ul class="space-y-md mb-xl">
+          <li class="flex items-center gap-md font-title-md text-on-surface" style="font-size:24px;font-weight:600;">
+            <span class="material-symbols-outlined text-primary-container">check_circle</span> Escolha dos Ingredientes "Místicos"
+          </li>
+          <li class="flex items-center gap-md font-title-md text-on-surface" style="font-size:24px;font-weight:600;">
+            <span class="material-symbols-outlined text-primary-container">check_circle</span> Técnicas de Decoração Gótica
+          </li>
+          <li class="flex items-center gap-md font-title-md text-on-surface" style="font-size:24px;font-weight:600;">
+            <span class="material-symbols-outlined text-primary-container">check_circle</span> Segredos do Ponto do Caramelo Sombrio
+          </li>
+        </ul>
+        <a href="./receitas/index.html" class="border-2 border-primary-container text-primary font-title-md px-xl py-md rounded-lg hover:bg-primary-container/10 transition-all inline-block" style="font-size:24px;font-weight:600;">
+          Acessar Caderno de Receitas
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Eventos & Contato -->
+<section class="py-xl px-gutter max-w-container-max mx-auto">
+  <div class="bg-surface-container border border-outline-variant/10 rounded-2xl p-xl flex flex-col md:flex-row items-center justify-between gap-xl relative overflow-hidden">
+    <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary-container/10 blur-3xl rounded-full"></div>
+    <div class="md:w-1/2">
+      <h2 class="font-headline-lg mb-md text-on-surface" style="font-size:32px;font-weight:700;font-family:'Syne',sans-serif;">
+        Eventos &amp; <span class="text-primary-container">Banquetes Especiais</span>
+      </h2>
+      <p class="text-on-surface-variant mb-xl" style="font-size:16px;">
+        Planejando um aniversário sombrio ou um jantar misterioso? Criamos bolos personalizados e bar de doces temáticos para tornar sua noite inesquecível.
+      </p>
+      <div class="space-y-lg">
+        <div class="flex gap-md">
+          <span class="material-symbols-outlined text-primary-container mt-1">location_on</span>
+          <div>
+            <h4 class="font-label-md text-on-surface" style="font-size:14px;font-weight:500;">Nosso Ateliê</h4>
+            <p class="text-on-surface-variant">Rua das Sombras, 666 - Vila Gótica</p>
+          </div>
+        </div>
+        <div class="flex gap-md">
+          <span class="material-symbols-outlined text-primary-container mt-1">mail</span>
+          <div>
+            <h4 class="font-label-md text-on-surface" style="font-size:14px;font-weight:500;">E-mail</h4>
+            <p class="text-on-surface-variant">contato@sabormacabro.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="md:w-1/3 bg-surface-container-high p-lg rounded-xl shadow-xl w-full">
+      <h3 class="font-title-md mb-lg text-center" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Solicitar Orçamento</h3>
+      <div class="space-y-md">
+        <div>
+          <label class="font-label-md block mb-xs text-on-surface-variant" style="font-size:14px;font-weight:500;">Nome</label>
+          <input class="w-full bg-surface-container border-b border-outline-variant/30 focus:border-primary-container focus:ring-0 transition-colors p-sm text-on-surface" type="text"/>
+        </div>
+        <div>
+          <label class="font-label-md block mb-xs text-on-surface-variant" style="font-size:14px;font-weight:500;">Data do Evento</label>
+          <input class="w-full bg-surface-container border-b border-outline-variant/30 focus:border-primary-container focus:ring-0 transition-colors p-sm text-on-surface" type="date"/>
+        </div>
+        <div>
+          <label class="font-label-md block mb-xs text-on-surface-variant" style="font-size:14px;font-weight:500;">Tipo de Doce</label>
+          <select class="w-full bg-surface-container border-b border-outline-variant/30 focus:border-primary-container focus:ring-0 transition-colors p-sm text-on-surface">
+            <option>Bolo de Festa</option>
+            <option>Doces Temáticos</option>
+            <option>Combo Inclusivo</option>
+          </select>
+        </div>
+        <button class="w-full bg-primary-container text-on-primary-container font-title-md py-md rounded-lg mt-md burnt-glow" style="font-size:24px;font-weight:600;">
+          Enviar Sinal de Fumaça
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="w-full py-xl px-gutter mt-auto bg-surface-container-lowest border-t border-outline-variant/10">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-lg max-w-container-max mx-auto text-center md:text-left">
+    <div>
+      <span class="font-headline-lg text-primary-container mb-md inline-block italic" style="font-size:32px;font-weight:700;font-family:'Syne',sans-serif;">Sabor Macabro</span>
+      <p class="text-on-surface-variant" style="font-size:16px;line-height:24px;">
+        Levando o extraordinário para a sua mesa, uma mordida de cada vez.
+      </p>
+    </div>
+    <div class="flex flex-col gap-sm">
+      <h4 class="text-tertiary font-bold mb-md">Explore</h4>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="./loja/index.html">Loja</a>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="./receitas/index.html">Receitas</a>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="./sobre/index.html">Sobre &amp; Contato</a>
+    </div>
+    <div class="flex flex-col gap-sm">
+      <h4 class="text-tertiary font-bold mb-md">Legal</h4>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">Política de Privacidade</a>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">Informações de Entrega</a>
+      <div class="flex justify-center md:justify-start gap-md mt-lg">
+        <span class="material-symbols-outlined text-outline">cookie</span>
+        <span class="material-symbols-outlined text-outline">skull</span>
+        <span class="material-symbols-outlined text-outline">magic_button</span>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto text-center mt-xl border-t border-outline-variant/10 pt-lg">
+    <p class="text-on-surface-variant" style="font-size:16px;">© 2025 Sabor Macabro. Artisanal Dark Fantasy Bakery.</p>
+  </div>
+</footer>
+
+<script src="./shared.js"></script>
+</body>
+</html>

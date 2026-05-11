@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sabor Macabro | Sobre &amp; Contato</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Space+Grotesk:wght@500&family=Syne:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-container": "#d97a2b", "surface-variant": "#353535", "outline": "#a38c7e",
+          "surface-container-low": "#1b1b1b", "on-surface": "#e5e2e1", "primary": "#ffb784",
+          "tertiary": "#b3d275", "outline-variant": "#554338", "surface-container-highest": "#353535",
+          "on-primary": "#4f2500", "tertiary-container": "#809c46",
+          "on-secondary-container": "#c5aae4", "on-background": "#e5e2e1",
+          "secondary-container": "#533c6e", "surface-container-high": "#2a2a2a",
+          "surface-container": "#20201f", "background": "#131313", "secondary": "#d7bbf6",
+          "on-tertiary-container": "#203000", "on-secondary": "#3b2656",
+          "surface-container-lowest": "#0e0e0e", "on-surface-variant": "#dbc2b2",
+          "surface": "#131313", "on-primary-container": "#482100", "on-tertiary": "#253600",
+          "primary-fixed": "#ffdcc6", "on-tertiary-fixed-variant": "#374e00",
+        },
+        borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px" },
+        spacing: { "margin-mobile": "16px", "gutter": "24px", "xl": "48px", "container-max": "1200px", "lg": "24px", "xs": "4px", "base": "4px", "md": "16px", "sm": "8px" },
+        fontFamily: { "body-md": ["Be Vietnam Pro"], "label-md": ["Space Grotesk"], "title-md": ["Syne"], "headline-lg": ["Syne"], "headline-xl": ["Syne"] },
+        fontSize: {
+          "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+          "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+          "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" }],
+          "title-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+          "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+          "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .glassmorphism-effect { backdrop-filter: blur(20px); border: 1px solid rgba(229,226,225,0.1); }
+  .eerie-glow { box-shadow: 0 0 30px rgba(75,53,102,0.2); }
+  .eerie-glow-orange:hover { box-shadow: 0 0 20px rgba(217,122,43,0.4); }
+  .themed-divider { height:1px; background:linear-gradient(90deg,transparent,#554338 50%,transparent); position:relative; margin:48px 0; }
+  .themed-divider::after { content:'flare'; font-family:'Material Symbols Outlined'; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:#131313; padding:0 10px; color:#d97a2b; font-size:18px; }
+  .nav-link { color:#dbc2b2; font-size:24px; line-height:32px; font-weight:600; font-family:'Syne',sans-serif; transition:color 0.2s; }
+  .nav-link:hover { color:#ffb784; }
+  .nav-active { color:#ffb784; border-bottom:2px solid #ffb784; padding-bottom:2px; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant/10 glassmorphism-effect bg-surface-container/80 h-20 shadow-lg">
+  <div class="flex justify-between items-center h-full px-gutter max-w-container-max mx-auto">
+    <a href="../index.html" class="font-headline-xl text-primary italic tracking-tight" style="font-size:24px;font-weight:700;font-family:'Syne',sans-serif;">Sabor Macabro</a>
+    <div class="hidden md:flex items-center gap-lg" id="nav-links"></div>
+    <div class="flex items-center gap-md">
+      <button class="text-on-surface-variant hover:text-primary-container transition-all duration-300">
+        <span class="material-symbols-outlined">shopping_cart</span>
+      </button>
+      <button class="text-on-surface-variant hover:text-primary-container transition-all duration-300">
+        <span class="material-symbols-outlined">account_circle</span>
+      </button>
+      <button class="md:hidden text-on-surface-variant" id="mobile-menu-btn">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <div class="hidden md:hidden border-t border-outline-variant/10 bg-surface/95" id="mobile-menu"></div>
+</header>
+
+<main class="pt-32 pb-xl px-gutter max-w-container-max mx-auto overflow-x-hidden">
+  <!-- Hero Sobre -->
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center mb-xl">
+    <div class="space-y-lg">
+      <span class="font-label-md text-tertiary uppercase tracking-widest bg-tertiary-container/20 px-4 py-1 rounded-full border border-tertiary/20" style="font-size:14px;font-weight:500;">Nossa Essência</span>
+      <h1 class="font-headline-xl text-primary leading-tight" style="font-size:48px;line-height:56px;font-weight:800;font-family:'Syne',sans-serif;">Uma Confeitaria Forjada nas Sombras.</h1>
+      <p class="text-on-surface-variant max-w-lg" style="font-size:18px;line-height:28px;">
+        A Sabor Macabro não é apenas uma padaria; é um portal para o encantamento sombrio. Nascemos da paixão pelo mistério e pela alta confeitaria, unindo ingredientes raros a um design visual inspirado no gótico vitoriano e no dark fantasy.
+      </p>
+      <div class="flex gap-md pt-md">
+        <div class="flex flex-col">
+          <span class="text-primary-container" style="font-size:32px;font-weight:700;font-family:'Syne',sans-serif;">13+</span>
+          <span class="text-outline" style="font-size:14px;font-weight:500;">Receitas Secretas</span>
+        </div>
+        <div class="w-px h-12 bg-outline-variant/30"></div>
+        <div class="flex flex-col">
+          <span class="text-primary-container" style="font-size:32px;font-weight:700;font-family:'Syne',sans-serif;">666</span>
+          <span class="text-outline" style="font-size:14px;font-weight:500;">Almas Satisfeitas</span>
+        </div>
+      </div>
+    </div>
+    <div class="relative group">
+      <div class="absolute -inset-4 bg-primary-container/10 blur-3xl rounded-full opacity-50 group-hover:opacity-80 transition-opacity"></div>
+      <div class="relative h-[500px] w-full rounded-xl overflow-hidden border border-outline-variant/20 eerie-glow">
+        <img alt="Interior Sabor Macabro" class="w-full h-full object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc5OrZO5L_EfCihelidpg-Z5dOJvhvARELi1U1ZMDhPr9XsCOMMEQlQS8x4ivElkKP1AGjOVNyN3__xQzkvPoYsWpyaZl78hlQ1ulDrXK0-XVSweLTRHXNtI5FMh-u1nu6hl3b1Ls43IvlnFx_ZuLn_OICX7N9_IVGBhfj2cBloBP_tJUBWily9RY-a1CNtl8TfId3fnfa5NrYsdqMm7ypl3OO2p1mAbcprKMx4LoJWSDefSUo49TXhlZNG-fODJu72oPqa5Y44F4"/>
+      </div>
+    </div>
+  </section>
+
+  <div class="themed-divider"></div>
+
+  <!-- Bento Grid Experiência -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+    <div class="md:col-span-2 bg-surface-container-high p-lg rounded-xl border border-outline-variant/10 eerie-glow relative overflow-hidden group">
+      <div class="relative z-10 h-full flex flex-col justify-end min-h-[300px]">
+        <h3 class="font-title-md text-primary mb-sm" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">O Ambiente</h3>
+        <p class="text-on-surface-variant" style="font-size:16px;">Um refúgio acolhedor onde o aroma de especiarias se mistura com o mistério de lanternas bruxuleantes. Perfeito para rituais matinais ou segredos compartilhados ao anoitecer.</p>
+      </div>
+      <img alt="Cafeteria Ambiente" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo2PE2tz5Dw7dN5pEGaNQaYrBOl32o9K9ohB2kqMQWz3XTw2QqjH_k1qHz61NPZLwNkr9aYAopUkgyKQjupsrwLF3pLForMBRk0OuIdtE_kpM6v9-inqo1f4MCCg75fPINN7g0C8qlou7g41c9KEegBzENhrieeckeQBXfHmGxv1Rq0vUbXtgSzrrR-g35GwbKQQAipO4qv7L6pCUamYD4FVAjJwxHgcVPCj0A6YkhuVlAZ7q-SHNaNQhSleQEvKD-nPEgi4sGNEw"/>
+    </div>
+    <div class="bg-primary-container text-on-primary-container p-lg rounded-xl flex flex-col justify-center items-center text-center space-y-md border border-primary/20 eerie-glow-orange cursor-pointer transition-all">
+      <span class="material-symbols-outlined" style="font-size:48px;">skillet</span>
+      <h3 class="font-title-md" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Artesanal &amp; Obscuro</h3>
+      <p class="text-on-primary opacity-90" style="font-size:16px;">Cada ingrediente é selecionado por sua qualidade e aura mística, garantindo um sabor que transcende o comum.</p>
+    </div>
+    <div class="bg-surface-container-high p-lg rounded-xl border border-outline-variant/10 flex flex-col justify-between">
+      <div>
+        <span class="material-symbols-outlined text-tertiary mb-md">location_on</span>
+        <h4 class="font-title-md text-on-surface" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Visite o Caldeirão</h4>
+      </div>
+      <div class="space-y-sm">
+        <p class="text-on-surface-variant" style="font-size:16px;">Rua das Sombras, 1031<br/>Bairro Gótico, São Paulo - SP</p>
+        <p class="text-primary-fixed" style="font-size:14px;font-weight:500;">Terça a Domingo: 13:00 - 22:00</p>
+      </div>
+    </div>
+    <div class="md:col-span-2 bg-surface-container-low border border-outline-variant/10 rounded-xl overflow-hidden grid grid-cols-1 sm:grid-cols-2">
+      <div class="p-lg flex flex-col justify-center">
+        <h3 class="font-title-md text-secondary mb-sm" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Encomendas Especiais</h3>
+        <p class="text-on-surface-variant mb-md" style="font-size:16px;">Planejando um banquete vitoriano ou uma celebração sombria? Criamos bolos e doces sob medida para o seu evento.</p>
+        <a class="inline-flex items-center text-primary hover:underline gap-xs" href="#contato" style="font-size:16px;">
+          Solicitar orçamento <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+        </a>
+      </div>
+      <div class="h-48 sm:h-auto">
+        <img alt="Bolo Customizado" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKttp9rLDOjLuwxNeIBHWWj3MBxK42M7SgVEsOsBwh8Yu1CLWYvwAMqFfS4IkGBRgVxIeeYHDFwRigHtzgv1kdr69YZ4bbP81zlwFtVmZi6AzEaIkMOCaxMl_43zwTiWx9q1uloPcCtPEyM9Jf28VBoE9Drvs2HD5XruIFRLe7kMRBuuezOXU40_vmRim3hZZB--zxQ8wbqhKaY3LuPjI6OzVh-NxJZWLi76_J26Eit7wxYj9d1zBjsGw4BuKH16e_ixWyeLHmAc"/>
+      </div>
+    </div>
+  </section>
+
+  <div class="themed-divider"></div>
+
+  <!-- Seção de Contato -->
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-xl" id="contato">
+    <div>
+      <h2 class="font-headline-lg text-primary mb-md" style="font-size:32px;font-weight:700;font-family:'Syne',sans-serif;">Fale Conosco</h2>
+      <p class="text-on-surface-variant mb-lg" style="font-size:16px;">Envie-nos um corvo (ou uma mensagem) para dúvidas, reservas ou encomendas personalizadas. Nossa equipe está pronta para materializar seus desejos mais doces.</p>
+      <div class="space-y-md">
+        <div class="flex items-center gap-md p-md bg-surface-container rounded-lg border border-outline-variant/5">
+          <div class="w-12 h-12 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined">mail</span>
+          </div>
+          <div>
+            <p class="text-outline" style="font-size:14px;font-weight:500;">E-mail</p>
+            <p class="text-on-surface" style="font-size:16px;">contato@sabormacabro.com.br</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-md p-md bg-surface-container rounded-lg border border-outline-variant/5">
+          <div class="w-12 h-12 rounded-full bg-tertiary-container/30 flex items-center justify-center text-tertiary">
+            <span class="material-symbols-outlined">call</span>
+          </div>
+          <div>
+            <p class="text-outline" style="font-size:14px;font-weight:500;">Telefone</p>
+            <p class="text-on-surface" style="font-size:16px;">+55 (11) 9666-1031</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-xl">
+        <h4 class="font-title-md text-on-surface mb-md" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Siga nossos passos</h4>
+        <div class="flex gap-md">
+          <a class="w-10 h-10 flex items-center justify-center border border-outline-variant/20 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">
+            <span class="material-symbols-outlined">share</span>
+          </a>
+          <a class="w-10 h-10 flex items-center justify-center border border-outline-variant/20 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">
+            <span class="material-symbols-outlined">alternate_email</span>
+          </a>
+          <a class="w-10 h-10 flex items-center justify-center border border-outline-variant/20 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all" href="#">
+            <span class="material-symbols-outlined">public</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="bg-surface-container-high p-lg rounded-xl border border-outline-variant/10 shadow-2xl">
+      <h3 class="font-title-md mb-lg" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Envie sua Mensagem</h3>
+      <div class="space-y-md">
+        <div>
+          <label class="font-label-md text-outline mb-1 block" style="font-size:14px;font-weight:500;">Seu Nome</label>
+          <input class="w-full bg-surface-container text-on-surface border-0 border-b border-outline-variant/30 focus:border-primary-container focus:ring-0 transition-all px-0 py-3" placeholder="Nome Completo" type="text"/>
+        </div>
+        <div>
+          <label class="font-label-md text-outline mb-1 block" style="font-size:14px;font-weight:500;">E-mail de Contato</label>
+          <input class="w-full bg-surface-container text-on-surface border-0 border-b border-outline-variant/30 focus:border-primary-container focus:ring-0 transition-all px-0 py-3" placeholder="email@exemplo.com" type="email"/>
+        </div>
+        <div>
+          <label class="font-label-md text-outline mb-1 block" style="font-size:14px;font-weight:500;">Assunto</label>
+          <select class="w-full bg-surface-container text-on-surface border-0 border-b border-outline-variant/30 focus:border-primary-container focus:ring-0 transition-all px-0 py-3">
+            <option>Dúvida Geral</option>
+            <option>Encomenda de Bolo</option>
+            <option>Evento Privado</option>
+            <option>Outros</option>
+          </select>
+        </div>
+        <div>
+          <label class="font-label-md text-outline mb-1 block" style="font-size:14px;font-weight:500;">Sua Mensagem</label>
+          <textarea class="w-full bg-surface-container text-on-surface border-0 border-b border-outline-variant/30 focus:border-primary-container focus:ring-0 transition-all px-0 py-3 resize-none" placeholder="Como podemos te encantar?" rows="4"></textarea>
+        </div>
+        <button class="w-full bg-primary-container text-on-primary-container py-md rounded-lg font-title-md eerie-glow-orange hover:bg-primary transition-all flex items-center justify-center gap-sm" style="font-size:24px;font-weight:600;">
+          Enviar Pacto <span class="material-symbols-outlined">send</span>
+        </button>
+      </div>
+      <div class="mt-md flex items-start gap-sm">
+        <div class="relative flex items-center">
+          <input class="peer appearance-none w-5 h-5 border border-outline rotate-45 checked:bg-tertiary checked:border-tertiary transition-all cursor-pointer" id="terms" type="checkbox"/>
+          <span class="material-symbols-outlined absolute text-[12px] text-on-tertiary opacity-0 peer-checked:opacity-100 pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">check</span>
+        </div>
+        <label class="text-on-surface-variant cursor-pointer" for="terms" style="font-size:14px;">Aceito os termos de privacidade e concordo em receber atualizações sombrias.</label>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="w-full py-xl px-gutter mt-xl bg-surface-container-lowest border-t border-outline-variant/10">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-lg max-w-container-max mx-auto text-center md:text-left">
+    <div class="space-y-md">
+      <span class="font-headline-lg text-primary-container italic" style="font-size:32px;font-weight:700;font-family:'Syne',sans-serif;">Sabor Macabro</span>
+      <p class="text-on-surface-variant" style="font-size:16px;">© 2025 Sabor Macabro. Artisanal Dark Fantasy Bakery. Doçura em cada detalhe sombrio.</p>
+    </div>
+    <div class="flex flex-col gap-sm">
+      <h5 class="text-tertiary font-bold mb-xs">Navegação</h5>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="../index.html">Início</a>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="../loja/index.html">Loja</a>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="../receitas/index.html">Receitas</a>
+    </div>
+    <div class="flex flex-col gap-sm">
+      <h5 class="text-tertiary font-bold mb-xs">Contatos</h5>
+      <p class="text-on-surface-variant opacity-80">Rua das Sombras, 1031, SP</p>
+      <p class="text-on-surface-variant opacity-80">contato@sabormacabro.com</p>
+      <div class="flex justify-center md:justify-start gap-md mt-sm">
+        <span class="material-symbols-outlined text-outline">cookie</span>
+        <span class="material-symbols-outlined text-outline">skull</span>
+        <span class="material-symbols-outlined text-outline">magic_button</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../subpage-shared.js"></script>
+</body>
+</html>

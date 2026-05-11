@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sabor Macabro | Loja de Doces Artesanais</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Space+Grotesk:wght@500&family=Syne:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-container": "#d97a2b", "surface-variant": "#353535", "outline": "#a38c7e",
+          "surface-container-low": "#1b1b1b", "on-surface": "#e5e2e1", "primary": "#ffb784",
+          "tertiary": "#b3d275", "outline-variant": "#554338", "surface-container-highest": "#353535",
+          "on-primary": "#4f2500", "tertiary-container": "#809c46",
+          "on-secondary-container": "#c5aae4", "on-background": "#e5e2e1",
+          "on-primary-fixed-variant": "#713700", "secondary-container": "#533c6e",
+          "surface-container-high": "#2a2a2a", "surface-container": "#20201f",
+          "background": "#131313", "secondary": "#d7bbf6",
+          "on-tertiary-container": "#203000", "on-secondary": "#3b2656",
+          "surface-container-lowest": "#0e0e0e", "on-surface-variant": "#dbc2b2",
+          "surface": "#131313", "on-primary-container": "#482100", "on-tertiary": "#253600",
+        },
+        borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px" },
+        spacing: { "margin-mobile": "16px", "gutter": "24px", "xl": "48px", "container-max": "1200px", "lg": "24px", "xs": "4px", "base": "4px", "md": "16px", "sm": "8px" },
+        fontFamily: { "body-md": ["Be Vietnam Pro"], "label-md": ["Space Grotesk"], "title-md": ["Syne"], "headline-lg": ["Syne"], "headline-xl": ["Syne"] },
+        fontSize: {
+          "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+          "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+          "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" }],
+          "title-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+          "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+          "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .glassmorphism-effect { backdrop-filter: blur(20px); background-color: rgba(32,32,31,0.6); border-bottom: 1px solid rgba(229,226,225,0.1); }
+  .eerie-glow-orange { box-shadow: 0 0 20px rgba(217,122,43,0.15); }
+  .eerie-glow-green:hover { box-shadow: 0 0 15px rgba(179,210,117,0.3); }
+  .themed-divider { height:1px; background:linear-gradient(90deg,transparent,#554338,transparent); position:relative; }
+  .themed-divider::after { content:'skull'; font-family:'Material Symbols Outlined'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:#131313; padding:0 8px; font-size:14px; color:#a38c7e; }
+  .nav-link { color:#dbc2b2; font-size:24px; line-height:32px; font-weight:600; font-family:'Syne',sans-serif; transition:color 0.2s; }
+  .nav-link:hover { color:#ffb784; }
+  .nav-active { color:#ffb784; border-bottom:2px solid #ffb784; padding-bottom:2px; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+
+<header class="fixed top-0 w-full z-50 glassmorphism-effect shadow-[0_4px_20px_rgba(217,122,43,0.1)]">
+  <div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+    <a href="../index.html" class="font-headline-lg text-primary italic tracking-tight" style="font-size:32px;font-weight:700;font-family:'Syne',sans-serif;">Sabor Macabro</a>
+    <div class="hidden md:flex items-center gap-xl" id="nav-links"></div>
+    <div class="flex items-center gap-lg">
+      <button class="text-primary-container hover:text-primary transition-all duration-300">
+        <span class="material-symbols-outlined">shopping_cart</span>
+      </button>
+      <button class="text-primary-container hover:text-primary transition-all duration-300">
+        <span class="material-symbols-outlined">account_circle</span>
+      </button>
+      <button class="md:hidden text-primary-container" id="mobile-menu-btn">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <div class="hidden md:hidden border-t border-outline-variant/10 bg-surface/95" id="mobile-menu"></div>
+</header>
+
+<main class="mt-20 flex-grow">
+  <!-- Hero -->
+  <section class="relative h-[409px] min-h-[300px] overflow-hidden flex items-center justify-center">
+    <img class="absolute inset-0 w-full h-full object-cover opacity-40 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYEfBXcWBxZyTSktbNhVvJata2aF0Tw5jWooQhe8jC4AIlvFY_9U9jxU1ZLsGZHEg2wykU6uC-mpkxnp3yBMJhUo_pW4Li2EiMmoi5ojZXzMRXM0UOEtWR6XTfRYUlP-v0NmLRdb2RlLE1t9PNY54IHgn-kkDcNmeK0uObwM_JCW4kZkspilpKsVHimKhlT8sPBfjYjTRVLVUGt0ObiCPghUs0mvkxroEUGv_2VomqdA4-iG0Ln0HahabtNlIg7CPbOBC-OgeA-XU" alt="Bakery ambiente"/>
+    <div class="relative z-10 text-center space-y-md px-margin-mobile">
+      <h1 class="font-headline-xl text-primary tracking-tight" style="font-size:48px;line-height:56px;font-weight:800;font-family:'Syne',sans-serif;">O Empório das Delícias Sombrias</h1>
+      <p class="text-on-surface-variant max-w-xl mx-auto" style="font-size:18px;line-height:28px;">Feitiços em forma de açúcar. Explore nossa coleção artesanal inspirada no extraordinário.</p>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"></div>
+  </section>
+
+  <div class="max-w-container-max mx-auto px-gutter py-xl">
+    <!-- Filtros -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-lg mb-xl">
+      <div class="flex flex-wrap gap-sm">
+        <button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-full font-label-md eerie-glow-orange transition-all hover:scale-105 active:scale-95" style="font-size:14px;font-weight:500;">Todos os Encantos</button>
+        <button class="bg-surface-container-high text-on-surface-variant border border-outline-variant/20 px-lg py-sm rounded-full font-label-md hover:border-tertiary hover:text-tertiary transition-all" style="font-size:14px;font-weight:500;">Bolos</button>
+        <button class="bg-surface-container-high text-on-surface-variant border border-outline-variant/20 px-lg py-sm rounded-full font-label-md hover:border-tertiary hover:text-tertiary transition-all" style="font-size:14px;font-weight:500;">Docinhos</button>
+        <button class="bg-surface-container-high text-on-surface-variant border border-outline-variant/20 px-lg py-sm rounded-full font-label-md hover:border-tertiary hover:text-tertiary transition-all" style="font-size:14px;font-weight:500;">Opções Saudáveis</button>
+      </div>
+      <div class="w-full md:w-72 relative group">
+        <input class="w-full bg-surface-container border-b border-outline-variant/20 text-on-surface py-sm px-md focus:outline-none focus:border-primary-container transition-all" placeholder="Buscar feitiço..." type="text"/>
+        <span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary-container">search</span>
+      </div>
+    </div>
+
+    <div class="themed-divider mb-xl"></div>
+
+    <!-- Catálogo -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-lg">
+      <!-- Card 1 -->
+      <div class="bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/10 group transition-all duration-500 hover:border-primary-container/30">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ6rw7lnjHsCT-o77IwmEMYfMV-udvlgcQ4ZM6YyExALvh2bnBzMp_SOqu9MDHKcbQNUEFWDckMKLMjzXV37NbPwYkjlRgXVX3UovsQNUFMn2NWOxeZ474vGGVDYSkDgsi_d2sfIMPqWL2AySYCfTtF_MXe-FLeHWhX4aTwfOx_YTY2R1Di4DgZ2asZFWBWXzbWM1aUKuSRBszyq9WhhmWErvgHQX1KDyB8igGIfD_4uegN-PDtintqKWxEM2zx47yq9VaZP5caiw" alt="Bolo Viúva Negra"/>
+          <span class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-sm py-1 rounded font-label-md tracking-widest uppercase eerie-glow-green" style="font-size:10px;">Novidade</span>
+        </div>
+        <div class="p-lg space-y-md">
+          <div class="flex justify-between items-start">
+            <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Bolo Viúva Negra</h3>
+            <span class="text-primary" style="font-size:18px;font-weight:500;">R$ 180</span>
+          </div>
+          <p class="text-on-surface-variant line-clamp-2" style="font-size:16px;">Chocolate belga 70% com recheio de framboesa ácida e cobertura de ganache sombria.</p>
+          <button class="w-full bg-primary-container text-on-primary px-md py-sm rounded-lg font-label-md flex items-center justify-center gap-sm eerie-glow-green hover:brightness-110 transition-all active:scale-95" style="font-size:14px;font-weight:500;">
+            <span class="material-symbols-outlined" style="font-size:20px;">cooking</span> Adicionar ao Caldeirão
+          </button>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/10 group transition-all duration-500 hover:border-primary-container/30">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeervPYQlR6vIncOfEHf9B3T2p2QcUdMEJPk7u9UsFijKf8hlTLa4WLV-bargaD6ADLniZ-cMeEJ3ZHokrWweNL6dWVJv8IpofxmA27FV-LqVkuX_J3A5V9FNPRMr3hV2VoWWjRJahoTskjlVHPZyu0OYKs0tJa9T1KSYKavu4W36VSxnqBWR-91WPWqi0a7A0tX7BbVdBOJnPqNz_1LpKU_NPaIy5EMNkal25OryeniK_n8dou8J5aHYmgjaQNK506XsyPFiN20k" alt="Donuts do Abismo"/>
+        </div>
+        <div class="p-lg space-y-md">
+          <div class="flex justify-between items-start">
+            <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Donuts do Abismo</h3>
+            <span class="text-primary" style="font-size:18px;font-weight:500;">R$ 15</span>
+          </div>
+          <p class="text-on-surface-variant line-clamp-2" style="font-size:16px;">Massa fermentada naturalmente com glacê de mirtilo real e pérolas de açúcar neon.</p>
+          <button class="w-full bg-primary-container text-on-primary px-md py-sm rounded-lg font-label-md flex items-center justify-center gap-sm eerie-glow-green hover:brightness-110 transition-all active:scale-95" style="font-size:14px;font-weight:500;">
+            <span class="material-symbols-outlined" style="font-size:20px;">cooking</span> Adicionar ao Caldeirão
+          </button>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/10 group transition-all duration-500 hover:border-primary-container/30">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCEOeyPyzSKkSfzfOdd9bKUvrcnpkFKRe-H7EgliICmISj8f4NY7KroAJUMSDGYMJfS3kNI3D0dbHybcfySXVMkebz4KlsCGk2qgJXmg5-BYd70VPyQyWEJ3569vi4SejAYWoCE3YQCxG_zQtLYjwJSpyY5kNpiCUKc9-9GQisVopyEAPJdry8b7ddgM3zt9qcJmHx5roit-xC5KE9hfsXVcSWSuRry4NHrqXEQsEMwsC7Fy4EKmnhY2N6RILrJHwmMTzgD6fItoU" alt="Macarons de Pântano"/>
+          <span class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-sm py-1 rounded font-label-md tracking-widest uppercase" style="font-size:10px;">Vegan</span>
+        </div>
+        <div class="p-lg space-y-md">
+          <div class="flex justify-between items-start">
+            <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Macarons de Pântano</h3>
+            <span class="text-primary" style="font-size:18px;font-weight:500;">R$ 12</span>
+          </div>
+          <p class="text-on-surface-variant line-clamp-2" style="font-size:16px;">Macarons de matcha premium e pistache, naturalmente verdes e 100% à base de plantas.</p>
+          <button class="w-full bg-primary-container text-on-primary px-md py-sm rounded-lg font-label-md flex items-center justify-center gap-sm eerie-glow-green hover:brightness-110 transition-all active:scale-95" style="font-size:14px;font-weight:500;">
+            <span class="material-symbols-outlined" style="font-size:20px;">cooking</span> Adicionar ao Caldeirão
+          </button>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/10 group transition-all duration-500 hover:border-primary-container/30">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYOzBedmQVGnNgOxUZNk7pArOsJSyTMDCeJb-QtTVT0mowApL5SmT3x0R8-V9k7Bv2sTY9yVVaPqLrfTPr9pVjkH0SMAUdJZpeqOSLuM3eBOs-1ej1R6TsxFzYfsqkvYdFq06eHUrqXK8KwdQ7lD9DPgpcXAdPVU-VmaY2fLjL_Vx8QArCVfWKp3lf4o9jti1VlyzRYrsX0nuAqDZdfr34FZCTlBXp4FUCyG1UwiR57bBrUAYLSWZzvM8zP3sUiaVEesCkwOjsGDA" alt="Cupcake Caldeirão"/>
+        </div>
+        <div class="p-lg space-y-md">
+          <div class="flex justify-between items-start">
+            <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Cupcake Caldeirão</h3>
+            <span class="text-primary" style="font-size:18px;font-weight:500;">R$ 18</span>
+          </div>
+          <p class="text-on-surface-variant line-clamp-2" style="font-size:16px;">Abóbora especiada com coração de caramelo salgado e cobertura amanteigada.</p>
+          <button class="w-full bg-primary-container text-on-primary px-md py-sm rounded-lg font-label-md flex items-center justify-center gap-sm eerie-glow-green hover:brightness-110 transition-all active:scale-95" style="font-size:14px;font-weight:500;">
+            <span class="material-symbols-outlined" style="font-size:20px;">cooking</span> Adicionar ao Caldeirão
+          </button>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/10 group transition-all duration-500 hover:border-primary-container/30">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9MgSTgpKmDYhGTCAy5BNERoNRxtgUyBkK6Ec6quIeDTTHTREJ7kig2TDjV6jqJGGpKhOwJpftCI79Po0MHF8C0kqB0U2VOUgWoff4ZOJUzHjkfYpLt53wtucecRZMTdVeMySGi0cV3iu5wsp2Pe__J_gqtWZm0Btclhj9geKi52tI2Hf9CAE--HfW1uZlrOr3RCaBiZx6QlgDFLMQbSsRXcYPhJfiqc0e6Xb7-JpY9puZ8YXobUi07nHxwWwLkUg71aC7_TLLCNo" alt="Trufas Vulcânicas"/>
+        </div>
+        <div class="p-lg space-y-md">
+          <div class="flex justify-between items-start">
+            <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Trufas Vulcânicas</h3>
+            <span class="text-primary" style="font-size:18px;font-weight:500;">R$ 8</span>
+          </div>
+          <p class="text-on-surface-variant line-clamp-2" style="font-size:16px;">Chocolate amargo com infusão de pimenta malagueta e flor de sal vulcânica.</p>
+          <button class="w-full bg-primary-container text-on-primary px-md py-sm rounded-lg font-label-md flex items-center justify-center gap-sm eerie-glow-green hover:brightness-110 transition-all active:scale-95" style="font-size:14px;font-weight:500;">
+            <span class="material-symbols-outlined" style="font-size:20px;">cooking</span> Adicionar ao Caldeirão
+          </button>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/10 group transition-all duration-500 hover:border-primary-container/30">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARKNkkWvIKljKRUe2VgHDU1RTdwr17yYUZTeMpCHwASpT9K3qmk15d2_cuiPDR3nXrIZI6Ek2o_qss59ylANosvnmRvMeTy-YkvVgGaclB_jr1Onx4PfdKcrsf4ZedGOHdcS0KY_W4s5__PnYnIePJz8bysmnqoJC5-RMVbTc7Km3cekobZcd6pxOIar2WxWNTBtNIKvz6LMrfY5E8WoZH7ZwkC7vQnd-KHItzBx1rsc3-gEfxLmoFe3jmu2Jh1qovnBt1kdZ-6GU" alt="Jardim de Ossos"/>
+          <span class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-sm py-1 rounded font-label-md tracking-widest uppercase" style="font-size:10px;">Saudável</span>
+        </div>
+        <div class="p-lg space-y-md">
+          <div class="flex justify-between items-start">
+            <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors" style="font-size:24px;font-weight:600;font-family:'Syne',sans-serif;">Jardim de Ossos</h3>
+            <span class="text-primary" style="font-size:18px;font-weight:500;">R$ 22</span>
+          </div>
+          <p class="text-on-surface-variant line-clamp-2" style="font-size:16px;">Cupcake sem glúten de lavanda e baunilha, decorado com pétalas cristalizadas.</p>
+          <button class="w-full bg-primary-container text-on-primary px-md py-sm rounded-lg font-label-md flex items-center justify-center gap-sm eerie-glow-green hover:brightness-110 transition-all active:scale-95" style="font-size:14px;font-weight:500;">
+            <span class="material-symbols-outlined" style="font-size:20px;">cooking</span> Adicionar ao Caldeirão
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-xl text-center">
+      <button class="inline-flex items-center gap-sm text-tertiary font-title-md border border-tertiary/20 px-xl py-md rounded-lg hover:bg-tertiary/5 hover:border-tertiary transition-all active:scale-95" style="font-size:24px;font-weight:600;">
+        <span class="material-symbols-outlined">auto_fix</span> Conjurar Mais Doces
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer class="bg-surface-container-lowest w-full py-xl px-gutter mt-auto border-t border-outline-variant/10">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-lg max-w-container-max mx-auto text-center md:text-left">
+    <div class="space-y-md">
+      <span class="font-headline-lg text-primary-container italic" style="font-size:32px;font-weight:700;font-family:'Syne',sans-serif;">Sabor Macabro</span>
+      <p class="text-on-surface-variant" style="font-size:16px;">© 2025 Sabor Macabro. Artisanal Dark Fantasy Bakery.</p>
+    </div>
+    <div class="flex flex-col gap-sm">
+      <h5 class="text-tertiary font-bold mb-md">Navegação</h5>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="../index.html">Início</a>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="../receitas/index.html">Receitas</a>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="../sobre/index.html">Sobre &amp; Contato</a>
+    </div>
+    <div class="flex flex-col gap-sm">
+      <h5 class="text-tertiary font-bold mb-md">Legal</h5>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">Política de Privacidade</a>
+      <a class="text-on-surface-variant hover:text-tertiary transition-colors opacity-80 hover:opacity-100" href="#">Informações de Entrega</a>
+      <div class="flex justify-center md:justify-start gap-md mt-sm">
+        <span class="material-symbols-outlined text-outline">cookie</span>
+        <span class="material-symbols-outlined text-outline">skull</span>
+        <span class="material-symbols-outlined text-outline">magic_button</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../subpage-shared.js"></script>
+</body>
+</html>
