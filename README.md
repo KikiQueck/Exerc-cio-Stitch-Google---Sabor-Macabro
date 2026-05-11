@@ -43,4 +43,4 @@ O site está publicado e disponível em ambiente de produção através da infra
 
 ---
 
- Feito com 💜 por [Nicole BarBosa](https://github.com/seu-usuario),[Hugo Gage](https://github.com/seu-usuario)
+ Feito com 💜 por [Nicole BarBosa]([https://github.com/seu-usuario](https://github.com/KikiQueck)),[Hugo Gage]([https://github.com/seu-usuario](https://github.com/TexugoZapz))
