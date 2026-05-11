@@ -38,7 +38,7 @@ Crie o design completo de um site chamado **Sabor Macabro**, uma confeitaria tem
 
 O site está publicado e disponível em ambiente de produção através da infraestrutura da **Vercel**.
 
-🔗 **Clique para acessar:** (https://dmd-phi.vercel.app)
+🔗 **Clique para acessar:** (https://exerc-cio-stitch-google-sabor-macab.vercel.app)
 
 ---
 
