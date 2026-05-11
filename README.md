@@ -6,8 +6,7 @@
 1. [💡 Sobre o Projeto](#-sobre-o-projeto)
 2. [🎨 Telas Google Stich IA](#-Telas-Google-Stich-IA)
 3. [🧱 Prompt Em Bloco](#-Prompt-Em-Bloco)
-4. [📅 Cronograma (ProjectLibre)](#-cronograma-projectlibre)
-5. [🚀 Deploy e Acesso](#-deploy-e-acesso)
+4. [🚀 Deploy e Acesso](#-deploy-e-acesso)
 
 ## 💡 Sobre o Projeto
 * Nome: Sabor Macabro
