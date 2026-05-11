@@ -4,10 +4,6 @@ Aqui de fome você não morre.
 ## 📌 Sumário
 
 1. [💡 Sobre o Projeto](#-sobre-o-projeto)
-    * [Nome](*Nome)
-    * [Descrição](*Descrição)
-    * [Objetivo](*objetivo)
-    * [Tecnologias utilizadas](*Tecnologias-utilizadas)
 2. [🎨 Telas Google Stich IA](#Telas-Google-Stich-IA)
 3. [🧱 Prompt Em Bloco](#Prompt-Em-Bloco)
 4. [📅 Cronograma (ProjectLibre)](#-cronograma-projectlibre)
@@ -22,9 +18,9 @@ Aqui de fome você não morre.
 
 *Tecnologias utilizadas:
 
-**Stitch AI
-**Claude AI
-**GitHub
+*Stitch AI
+*Claude AI
+*GitHub
 **Vercel
 
 ## 🎨 Telas Google Stich IA
