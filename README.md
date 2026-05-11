@@ -4,8 +4,8 @@ Aqui de fome você não morre.
 ## 📌 Sumário
 
 1. [💡 Sobre o Projeto](#-sobre-o-projeto)
-2. [🎨 Telas Google Stich IA](#Telas-Google-Stich-IA)
-3. [🧱 Prompt Em Bloco](#Prompt-Em-Bloco)
+2. [🎨 Telas Google Stich IA](#-Telas-Google-Stich-IA)
+3. [🧱 Prompt Em Bloco](#-Prompt-Em-Bloco)
 4. [📅 Cronograma (ProjectLibre)](#-cronograma-projectlibre)
 5. [🚀 Deploy e Acesso](#-deploy-e-acesso)
 
@@ -24,6 +24,13 @@ Aqui de fome você não morre.
 - Vercel
 
 ## 🎨 Telas Google Stich IA
+<img width="633" height="1600" alt="Home" src="https://github.com/user-attachments/assets/5f77d660-7330-40ac-a57e-0d3a19191dd8" />
+<img width="873" height="1600" alt="Receitas" src="https://github.com/user-attachments/assets/c535e0a0-38c1-4e8f-a583-75600bb6fc76" />
+<img width="983" height="1600" alt="Loja" src="https://github.com/user-attachments/assets/91c93098-e2ae-44be-8a60-ce69c11c1303" />
+<img width="808" height="1600" alt="Contato" src="https://github.com/user-attachments/assets/f454758a-1fb1-47ee-b99d-e6e12822a3e1" />
+<img width="601" height="600" alt="Logo" src="https://github.com/user-attachments/assets/7597fe08-a077-4b61-b7d3-6eded5fe621f" />
+
+
 
 ## 🧱 Prompt Em Bloco
 
