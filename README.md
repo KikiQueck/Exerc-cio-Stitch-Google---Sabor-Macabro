@@ -10,18 +10,18 @@ Aqui de fome você não morre.
 5. [🚀 Deploy e Acesso](#-deploy-e-acesso)
 
 ## 💡 Sobre o Projeto
-*Nome: Sabor Macabro
+* Nome: Sabor Macabro
 
-*Descrição: Confeitaria temática inspirada no terror/Halloween que combina venda de doces criativos com ensino de receitas. O site oferece uma experiência de compra e aprendizado, incluindo versões adaptadas com menos açúcar ou ingredientes alternativos, tornando a confeitaria mais inclusiva.
+* Descrição: Confeitaria temática inspirada no terror/Halloween que combina venda de doces criativos com ensino de receitas. O site oferece uma experiência de compra e aprendizado, incluindo versões adaptadas com menos açúcar ou ingredientes alternativos, tornando a confeitaria mais inclusiva.
 
-*Objetivo: Desenvolver um site temático moderno e responsivo que una entretenimento, gastronomia e acessibilidade, proporcionando uma experiência imersiva para usuários interessados em confeitaria criativa e estética Halloween. O projeto também teve como objetivo aplicar conceitos de UX/UI, acessibilidade, responsividade e desenvolvimento front-end utilizando ferramentas de inteligência artificial no processo de design e programação.
+* Objetivo: Desenvolver um site temático moderno e responsivo que una entretenimento, gastronomia e acessibilidade, proporcionando uma experiência imersiva para usuários interessados em confeitaria criativa e estética Halloween. O projeto também teve como objetivo aplicar conceitos de UX/UI, acessibilidade, responsividade e desenvolvimento front-end utilizando ferramentas de inteligência artificial no processo de design e programação.
 
-*Tecnologias utilizadas:
+* Tecnologias utilizadas:
 
-*Stitch AI
-*Claude AI
-*GitHub
-**Vercel
+* Stitch AI
+* Claude AI
+* GitHub
+* Vercel
 
 ## 🎨 Telas Google Stich IA
 
