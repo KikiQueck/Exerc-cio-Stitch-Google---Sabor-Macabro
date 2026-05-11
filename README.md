@@ -18,10 +18,10 @@ Aqui de fome você não morre.
 
 * Tecnologias utilizadas:
 
-* Stitch AI
-* Claude AI
-* GitHub
-* Vercel
+- Stitch AI
+- Claude AI
+- GitHub
+- Vercel
 
 ## 🎨 Telas Google Stich IA
 
